@@ -1,8 +1,21 @@
 import webgazerSetup from './webgazer/setup'
-import {startSpeechText, stopSpeechText} from './speech-to-text/controls'
+import {startSpeechText, stopSpeechText, setBodyListener} from './speech-to-text/controls'
 import startCalibration from './calibration/controls'
+import constants from './constants'
 
 window.onload = () => {
+  if(constants.enableSpeechNavigation) {
+    speechRunner();
+  } else {
+    webgazerRunner();
+  }
+}
+
+let speechRunner = () => {
+  setBodyListener();
+}
+
+let webgazerRunner = () => {
   if(typeof(window.webgazer) === 'undefined') {
     throw new Error("webgazer not found!");
   } else {
@@ -22,8 +35,8 @@ window.onload = () => {
   for (let i = 0; i < speechToTextElements.length; i++) {
     let element = speechToTextElements[i];
     element.onfocus = () => {
-      let recog = startSpeechText(element);
-      element.onblur = () => stopSpeechText(recog);
+      startSpeechText(element, false, true);
+      element.onblur = () => stopSpeechText();
     }
   }
 }

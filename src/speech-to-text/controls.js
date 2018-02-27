@@ -3,10 +3,14 @@ import onresult from './onresult'
 import onerror from './onerror'
 import onend from './onend'
 
-let startSpeechText = (element) => {
-  var recog = new webkitSpeechRecognition();
-  recog.continuous = false;
-  recog.interimResults = true;
+let recog
+
+let startSpeechText = (element, continuous, interim) => {
+  if(recog) { stopSpeechText(); }
+
+  recog = new webkitSpeechRecognition();
+  recog.continuous = continuous;
+  recog.interimResults = interim;
 
   recog.onstart = onstart(element);
   recog.onerror = onerror(element);
@@ -15,10 +19,16 @@ let startSpeechText = (element) => {
 
   recog.lang = "en-GB";
   recog.start();
+
+  return recog;
 }
 
-let stopSpeechText = (recog) => {
+let stopSpeechText = () => {
   recog.stop();
 }
 
-export { startSpeechText, stopSpeechText }
+let setBodyListener = () => {
+  startSpeechText(document.body, true, true);
+}
+
+export { startSpeechText, stopSpeechText, setBodyListener }
