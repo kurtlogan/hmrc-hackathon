@@ -1,22 +1,26 @@
+import webgazerSetup from './webgazer/setup'
 import {startSpeechText, stopSpeechText} from './speech-to-text/controls'
+import startCalibration from './calibration/controls'
 
 window.onload = () => {
   if(typeof(window.webgazer) === 'undefined') {
     throw new Error("webgazer not found!");
+  } else {
+    webgazerSetup(window, window.webgazer);
   }
 
-  webgazer.begin();
+  let calibrateButton = document.querySelector("#calibrate")
 
-  document.querySelector("#button").onclick = () => alert("here");
+  if(calibrateButton) {
+    document.addEventListener('click', startCalibration(window.webgazer));
+  }
 
   /*
    * Bind speech to text to all elements on page load
    */
-  var speechToTextElements = document.querySelectorAll("input[type='text'], textarea");
-  console.log(speechToTextElements)
+  let speechToTextElements = document.querySelectorAll("input[type='text'], textarea");
   for (let i = 0; i < speechToTextElements.length; i++) {
     let element = speechToTextElements[i];
-    console.log(element)
     element.onfocus = () => {
       let recog = startSpeechText(element);
       element.onblur = () => stopSpeechText(recog);
