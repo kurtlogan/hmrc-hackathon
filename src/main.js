@@ -7,6 +7,8 @@ window.onload = () => {
 
   webgazer.begin();
 
+  document.querySelector("#button").onclick = () => alert("here");
+
   /*
    * Bind speech to text to all elements on page load
    */
