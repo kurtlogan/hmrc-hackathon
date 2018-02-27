@@ -8,6 +8,7 @@ instructions can be found [https://docs.npmjs.com/getting-started/installing-nod
 ## Installation commands
 - Install dependencies `npm install`
 - Build scripts and css `npm run build`
+- Setup self signed cert `openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem`
 - Start server `npm run start`
 
 ## Testing

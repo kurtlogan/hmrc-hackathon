@@ -1,9 +1,18 @@
-var assert = require('assert');
+var chai = require('chai');
+var expect = chai.expect;
+var root = require('window-or-global');
 
-describe('Array', () => {
-  describe('#indexOf()', () => {
-    it('should return -1 when the value is not present', () => {
-      assert.equal([1,2,3].indexOf(4), -1);
-    });
+beforeEach(() => {
+  root.webgazer = {};
+});
+
+describe('Main', () => {
+  it('should throw error when webgazer is not installed', () => {
+    root.webgazer = undefined;
+    expect(() => require('../src/main')).to.throw(Error, "webgazer not found!")
+  });
+
+  it("should not throw an error when webgazer is installed", () => {
+    require('../src/main');
   });
 });
