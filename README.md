@@ -1,6 +1,10 @@
 # hmrc-hackathon
 Hackathon at HMRC
 
+## Prerequisites
+Node and npm are required to build and run this library. Node and npm installation
+instructions can be found [https://docs.npmjs.com/getting-started/installing-node]
+
 ## Installation commands
 - Install dependencies `npm install`
 - Build scripts and css `npm run build`
@@ -8,10 +12,10 @@ Hackathon at HMRC
 
 ## Testing
 Unit testing is accomplished using mocha, and tests are located in the `/test` directory
-Tests can be run using `npm run test`
+- Test command `npm run test`
 
-## Addtional info
-library entry point is in `/src/main.js`. The library compile javascript code using
+## Additional info
+Library entry point is in `/src/main.js`. The library compiles javascript code using
 babel and webpack from ES6 to ES5. Build files are output to the `/build/` directory.
 
 ### Happy hacking
