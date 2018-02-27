@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Webgazer script must come before library script -->
+  <script type="text/javascript" src="/build/webgazer.js"></script>
+  <script type="text/javascript" src="/build/main.bundle.js"></script>
+  <script>
+    function start() {
+      webgazer.setGazeListener(function(data, elapsedTime) {
+      if (data == null) {
+        return;
+      }
+      var xprediction = data.x;
+      var yprediction = data.y;
+    }).begin();
+  };
+
+  window.onload = start;
+
+  function getPrediction() {
+    var x = webgazer.getCurrentPrediction();
+    console.log(x)
+  }
+  </script>
+
+  <style>
+  .grid-row {
+    width:100%
+  }
+
+  .col-one-third {
+    float:left;
+    width:33.3%;
+    min-height:200px;
+    border:1px solid black;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+  <h1>Navigation</h1>
+
+  <div class="grid-row">
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+    <div class="col-one-third">
+      <input id="getPrediction" type="button" value="getPrediction" onclick="getPrediction()" />
+    </div>
+
+  </div>
+
+</body>
+</html>
