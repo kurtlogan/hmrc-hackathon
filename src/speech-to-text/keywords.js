@@ -53,11 +53,70 @@ export default [{
 
     if(element) {
       element.focus();
-      element.style.border = "1px solid yellow"
       startSpeechText(element, false, true);
     }
   }
 }, {
   key: "back",
   action: () => window.history.back()
+}, {
+  key: "start now",
+  action: () => {
+    let element = Array.from(document.querySelectorAll("a"))
+      .find(e => e.innerText.toLowerCase() == "start now")
+
+    if(element) {
+      element.click();
+    }
+  }
+}, {
+  key: "option yes",
+  action: () => {
+    let element = Array.from(document.querySelectorAll("input[type=radio]"))
+      .find(e => e.value.toLowerCase() == "yes")
+
+    if(element) {
+      element.click();
+    }
+  }
+}, {
+  key: "option no",
+  action: () => {
+    let element = Array.from(document.querySelectorAll("input[type=radio]"))
+      .find(e => e.value.toLowerCase() == "no")
+
+    if(element) {
+      element.click();
+    }
+  }
+}, {
+  key: "continue",
+  action: () => {
+    let element = Array.from(document.querySelectorAll("input[type=submit]"))
+      .find(e => e.value.toLowerCase() == "continue")
+
+    if(element) {
+      element.click();
+    }
+  }
+}, {
+  key: "name",
+  action: () => {
+    let element = document.querySelector("input[type=text]")
+
+    if(element) {
+      element.focus();
+      startSpeechText(element, false, true);
+    }
+  }
+}, {
+  key: "confirm and send",
+  action: () => {
+    let element = Array.from(document.querySelectorAll("a"))
+      .find(e => e.innerText.toLowerCase() == "confirm and send")
+
+    if(element) {
+      element.click();
+    }
+  }
 }]
