@@ -22,7 +22,6 @@ export default (element) => (event) => {
     {
       console.log(word.key);
       word.action();
-      setBodyListener();
     }
   } else {
     element.value = interim;
@@ -81,7 +80,7 @@ let keywords = [
       if(element) {
         element.focus();
         element.style.border = "1px solid yellow"
-        startSpeechText(element, false);
+        startSpeechText(element, false, true);
       }
     }
   }, {
