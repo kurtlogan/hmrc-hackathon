@@ -64,7 +64,7 @@ export default [{
   action: () => {
     let element = Array.from(document.querySelectorAll("a"))
       .find(e => e.innerText.toLowerCase() == "start now")
-
+console.log(element)
     if(element) {
       element.click();
     }
@@ -117,6 +117,16 @@ export default [{
 
     if(element) {
       element.click();
+    }
+  }
+}, {
+  key: "date",
+  action: () => {
+    let element = document.querySelector(".form-date")
+
+    if(element) {
+        element.focus();
+        startSpeechText(element, false, true);
     }
   }
 }]
